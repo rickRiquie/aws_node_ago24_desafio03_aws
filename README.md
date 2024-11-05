@@ -1,6 +1,6 @@
 # AWS_NODE_AGO24_DESAFIO03_AWS
 
-Anteriormente foi craida uma API RESTful projetada para o gerenciamento da locação de carros. Permite o gerenciamento de usuários, o cadastro de clientes, o controle de carros disponíveis para locação e a criação e acompanhamento de pedidos de locação.
+Anteriormente foi craida uma API RESTful projetada para o gerenciamento da locação de carros. Que permite o gerenciamento de usuários, o cadastro de clientes, o controle de carros disponíveis para locação e a criação e acompanhamento de pedidos de locação.
 Nesta etapa será realizada o deploy dessa API utilizando serviços da AWS.
 
 ## Pré-requisitos
@@ -12,6 +12,11 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos:
 - **Instância EC2**: O deploy da aplicação será realizado em uma instância EC2. Você pode criar uma instância seguindo as instruções na seção [Usar EC2](#2-usar-ec2).
 - **Amazon S3**: Uma configuração de bucket no S3 para armazenar e disponibilizar o Swagger. Certifique-se de que o bucket esteja criado e configurado para acesso público, conforme descrito na seção [Configuração do S3](#1-configuração-do-s3).
 - **Git**: O Git instalado em sua máquina local para clonar o repositório e gerenciar o código-fonte.
+
+
+## **Observação**
+**Os arquivos html para fazer o upload no bucket estão reposiotório do projeto no diretório bucket**
+
 
 ## Estrutura do Projeto
 
@@ -41,8 +46,6 @@ A estrutura do projeto é organizada da seguinte maneira:
 
 - **tsconfig.json**: Configuração do TypeScript, que define as opções do compilador e o comportamento da transpilação.
 
-### Observação
-**Os arquivos html para fazer o upload no bucket estão reposiotório do projeto no diretório bucket**
 
 ## Passos para o Deploy
 
@@ -50,12 +53,15 @@ A estrutura do projeto é organizada da seguinte maneira:
 1. Acesse o console do Amazon S3.
 2. Selecione a **região** onde deseja criar o bucket.
 3. Clique em **"Criar bucket"**.
-4. Escolha um **nome único** para o bucket (por exemplo, `meu-bucket-swagger`) 
+4. Escolha um **nome único** para o bucket (por exemplo, `meu-bucket-swagger`).
+
+
 
 #### 1.2 Configurar bucket
 1. Na aba de **Propreidade de objeto** deixe as ACLs desabilitadas (recomendado)
 2. Em **Configuração de bloqueio do acesso público deste bucket**, desmareque a opção de **Bloquear todo o acesso público**.
-3. Depois clique em **Criar bucket**
+3. Depois clique em **Criar bucket**.
+
 
 ### 1.3 Configurar Permissões
 1. No console do S3, selecione o bucket que você acabou de criar.
@@ -72,8 +78,9 @@ A estrutura do projeto é organizada da seguinte maneira:
             "Action": "s3:GetObject",
             "Resource": "arn:aws:s3:::sua-bucket/*"
         }
-    ]
-}
+      ]
+   }
+
 
 ### 1.4 Hospedagem de site estático
 1. No console do S3, selecione o bucket que você criou.
@@ -82,6 +89,7 @@ A estrutura do projeto é organizada da seguinte maneira:
 4. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
 5. Em **Documneto de ídice**, adicione o html do swagger e em documento de erro adicione o html de erro (opcional).
 6. Salve as alterações e volte para a Console do S3.
+
 
 ### 1.5 Adicionar arquivos ao bucket
 1. No console do S3, clique em **Carregar**.
