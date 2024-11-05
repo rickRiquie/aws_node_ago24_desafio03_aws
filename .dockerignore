@@ -1,4 +1,4 @@
-node_modules/
+node_modules
 .env
 package-lock.json
 *.db
@@ -6,3 +6,5 @@ package-lock.json
 Thumbs.db
 .vscode/
 .idea/
+.git
+.dockerignore
