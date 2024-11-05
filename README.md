@@ -1,6 +1,7 @@
 # AWS_NODE_AGO24_DESAFIO03_AWS
 
 Anteriormente foi craida uma API RESTful projetada para o gerenciamento da locação de carros. Que permite o gerenciamento de usuários, o cadastro de clientes, o controle de carros disponíveis para locação e a criação e acompanhamento de pedidos de locação.
+
 Nesta etapa será realizada o deploy dessa API utilizando serviços da AWS.
 
 ## Pré-requisitos
@@ -25,6 +26,7 @@ A estrutura do projeto é organizada da seguinte maneira:
 - **src/**: Contém o código fonte da aplicação.
 - **controllers/**: Responsável pela lógica que manipula as requisições e respostas da API.
 - **services/**: Implementa a lógica de negócio e interage com os repositórios.
+- **repositories/**: Este diretório contém os repositórios que gerenciam a interação com o banco de dados.
 - **routes/**: Define as rotas da API e associa cada rota ao seu respectivo controlador.
 - **shared/**: Inclui middlewares, erros para manipulação de requisições e respostas. E routes que define as rotas da API e associa cada rota ao seu respectivo controlador .
 - **server.ts**: Arquivo principal que inicializa o servidor e configura as rotas.
@@ -48,6 +50,9 @@ A estrutura do projeto é organizada da seguinte maneira:
 
 
 ## Passos para o Deploy
+
+
+##**Configuração do S3**
 
 #### 1.1 Criar um Bucket no S3
 1. Acesse o console do Amazon S3.
