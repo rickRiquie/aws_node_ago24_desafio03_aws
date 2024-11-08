@@ -17,11 +17,11 @@ export default class Order implements IOrder {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   dateRequest!: Date;
 
   @Column('enum', {
-    enum: ['open', 'approved', 'closed', 'cancelled']
+    enum: ['open', 'approved', 'closed', 'cancelled'],
   })
   statusRequest!: string;
 
@@ -55,11 +55,12 @@ export default class Order implements IOrder {
   @Column({ type: 'decimal', default: 0 })
   fine!: number;
 
-  @OneToOne(() => Customer, customer => customer.order, {nullable: false})
+  @OneToOne(() => Customer, customer => customer.order, { nullable: false })
   @JoinColumn()
   customer!: Customer;
 
-  @OneToOne(() => Cars, cars => cars.order, {nullable: false})
+  @OneToOne(() => Cars, cars => cars.order, { nullable: false })
   @JoinColumn()
   car!: Cars;
 }
+

@@ -1,23 +1,30 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn,  } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import IUser from '../models/IUser';
 
 @Entity('users')
-export default class User implements IUser{
-    @PrimaryGeneratedColumn('uuid')
-    id?: string
+export default class User implements IUser {
+  @PrimaryGeneratedColumn('uuid')
+  id?: string;
 
-    @Column()
-    name?: string
+  @Column()
+  name?: string;
 
-    @Column()
-    email?: string
+  @Column()
+  email?: string;
 
-    @Column()
-    password?: string;
+  @Column()
+  password?: string;
 
-    @CreateDateColumn()
-    createdAt?: Date;
+  @CreateDateColumn()
+  createdAt?: Date;
 
-    @DeleteDateColumn()
-    deletedAt?: Date | null;
+  @DeleteDateColumn()
+  deletedAt?: Date | null;
 }
+

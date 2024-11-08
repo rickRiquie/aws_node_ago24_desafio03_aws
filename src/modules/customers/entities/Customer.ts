@@ -2,16 +2,15 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  CreateDateColumn,
   DeleteDateColumn,
-  OneToOne
+  OneToOne,
 } from 'typeorm';
 
-import ICustomer from '../interface/ICustomer'; 
+import ICustomer from '../interface/ICustomer';
 import Order from '../../Order/entities/OrderEntity';
 
 @Entity('customers')
-class Customer implements ICustomer{
+class Customer implements ICustomer {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
@@ -30,14 +29,15 @@ class Customer implements ICustomer{
   @Column({ type: 'varchar', length: 20 })
   phone!: string;
 
-  @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt!: Date;
 
   @DeleteDateColumn({ type: 'timestamp', nullable: true })
   deletedAt?: Date;
 
-  @OneToOne(() => Order, (order) => order.customer)
-  order!: Order
+  @OneToOne(() => Order, order => order.customer)
+  order!: Order;
 }
 
 export default Customer;
+

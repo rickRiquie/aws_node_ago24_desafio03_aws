@@ -1,16 +1,20 @@
-FROM node:20.18.0
+FROM node:18
 
 WORKDIR /app
 
 COPY package*.json ./
+
 RUN npm install
+
+RUN npm install -g typescript ts-node-dev ts-node
+
+COPY wait-for-it.sh /app/wait-for-it.sh
+
+RUN chmod +x /app/wait-for-it.sh
 
 COPY . .
 
-RUN npm install -g typescript
+EXPOSE 8080
 
-RUN npm run build
+CMD ["sh", "-c", "./wait-for-it.sh db:3306 -- npm run migration:run && npm run dev"]
 
-EXPOSE 3000
-
-CMD ["node", "dist/server.js"]
