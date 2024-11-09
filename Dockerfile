@@ -6,12 +6,8 @@ COPY package*.json ./
 
 RUN npm install
 
-RUN npm install -g typescript ts-node-dev ts-node
-
-COPY wait-for-it.sh /app/wait-for-it.sh
+COPY . .
 
 RUN chmod +x /app/wait-for-it.sh
-
-COPY . .
 
 EXPOSE 8080
