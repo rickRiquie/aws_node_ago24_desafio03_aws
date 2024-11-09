@@ -48,7 +48,7 @@ Para gerar o HTML do Swagger, utilizei a biblioteca **Redocly**, que permite a c
 
 Redocly pode ser utilizado diretamente via **npx**, portanto, não é necessário instalar a biblioteca globalmente. O comando abaixo utiliza **npx** para executar o Redocly:
 
-      ```bash
+```bash
 npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
 ## Passos para o Deploy
