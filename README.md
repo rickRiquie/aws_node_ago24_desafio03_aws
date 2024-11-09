@@ -1,4 +1,4 @@
-# AWS_NODE_AGO24_DESAFIO03_AWS
+# AWS_NODE_AGO24_DESAFIO_03_AWS
 
 Anteriormente foi craida uma API RESTful projetada para o gerenciamento da locação de carros. Que permite o gerenciamento de usuários, o cadastro de clientes, o controle de carros disponíveis para locação e a criação e acompanhamento de pedidos de locação.
 
@@ -9,14 +9,9 @@ Nesta etapa será realizada o deploy dessa API utilizando serviços da AWS.
 Antes de começar, verifique se você tem os seguintes pré-requisitos:
 
 - **Uma conta na AWS**: Uma conta na AWS para criar e gerenciar recursos como EC2, S3, etc.
-- **AWS CLI**: A AWS Command Line Interface instalada e configurada em sua máquina local para facilitar a interação com os serviços da AWS.
-- **Instância EC2**: O deploy da aplicação será realizado em uma instância EC2. Você pode criar uma instância seguindo as instruções na seção [Usar EC2](#2-usar-ec2).
+- **Instância EC2**: O deploy da aplicação será realizado em uma instância EC2. Você pode criar uma instância seguindo as instruções na seção [Configuração da EC2](#2-usar-ec2).
 - **Amazon S3**: Uma configuração de bucket no S3 para armazenar e disponibilizar o Swagger. Certifique-se de que o bucket esteja criado e configurado para acesso público, conforme descrito na seção [Configuração do S3](#1-configuração-do-s3).
-- **Git**: O Git instalado em sua máquina local para clonar o repositório e gerenciar o código-fonte.
-
-
-## **Observação**
-**Os arquivos html para fazer o upload no bucket estão reposiotório do projeto no diretório bucket**
+- **Git**: O Git será instalado diretamente na instância EC2 para clonar o repositório e gerenciar o código-fonte.
 
 
 ## Estrutura do Projeto
@@ -48,11 +43,17 @@ A estrutura do projeto é organizada da seguinte maneira:
 
 - **tsconfig.json**: Configuração do TypeScript, que define as opções do compilador e o comportamento da transpilação.
 
+## **Gerando o HTML do Swagger**
+Para gerar o HTML do Swagger, utilizei a biblioteca **Redocly**, que permite a criação de uma interface interativa para visualizar a documentação da API. Abaixo estão os passos para gerar o arquivo `index.html` com base no arquivo `swagger.yml`:
+
+Redocly pode ser utilizado diretamente via **npx**, portanto, não é necessário instalar a biblioteca globalmente. O comando abaixo utiliza **npx** para executar o Redocly:
+
+      ```bash
+      npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
 ## Passos para o Deploy
 
-
-##**Configuração do S3**
+## Configuração do S3
 
 #### 1.1 Criar um Bucket no S3
 1. Acesse o console do Amazon S3.
@@ -92,7 +93,7 @@ A estrutura do projeto é organizada da seguinte maneira:
 2. Vá até **Propriedades**.
 3. E selecione **Hospedagem de site estático**, e clique em **editar**.
 4. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
-5. Em **Documneto de ídice**, adicione o html do swagger e em documento de erro adicione o html de erro (opcional).
+5. Em **Documneto de ídice**, adicione o html do swagger.
 6. Salve as alterações e volte para a Console do S3.
 
 
