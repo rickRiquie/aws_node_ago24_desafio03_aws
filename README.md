@@ -10,7 +10,7 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos:
 
 - **Uma conta na AWS**: Uma conta na AWS para criar e gerenciar recursos como EC2, S3, etc.
 - **Instância EC2**: O deploy da aplicação será realizado em uma instância EC2. Você pode criar uma instância seguindo as instruções na seção [Configuração da EC2](#2-usar-ec2).
-- **Amazon S3**: Uma configuração de bucket no S3 para armazenar e disponibilizar o Swagger. Certifique-se de que o bucket esteja criado e configurado para acesso público, conforme descrito na seção [Configuração do S3](#1-configuração-do-s3).
+- **Amazon S3**: Uma configuração de bucket no S3 para armazenar e disponibilizar o Swagger. Certifique-se de que o bucket esteja criado e configurado para acesso público, conforme descrito na seção [Configuração do S3](#configuração-do-s3).
 - **Git**: O Git será instalado diretamente na instância EC2 para clonar o repositório e gerenciar o código-fonte.
 
 
