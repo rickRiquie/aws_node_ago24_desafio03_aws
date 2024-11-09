@@ -26,23 +26,60 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 ## Configuração do S3
 
 #### 1.1 Criar um Bucket no S3
-1. Acesse o console do Amazon S3.
-2. Selecione a **região** onde deseja criar o bucket.
-3. Clique em **"Criar bucket"**.
-4. Escolha um **nome único** para o bucket ( por exemplo, `meu-bucket-swagger` ).
+1. Abra a console da AWS.
+2. Na barra de pesquisa, procure por **S3**.
 
+
+![S3](images/s3-pesquisa.png)
+
+   
+2. Selecione a **região** onde deseja criar o bucket.
+
+
+![S3](images/s3-region.png)
+
+   
+4. Clique em **"Criar bucket"**.
+
+
+![S3](images/s3-criar-bucket.png)
+
+6. Escolha um **nome único** para o bucket ( por exemplo, `aws-node-ago-meu-bucket` ).
+
+
+![S3](images/s3-name-bucket.png)
 
 
 #### 1.2 Configurar bucket
 1. Na aba de **Propreidade de objeto** deixe as ACLs desabilitadas ( recomendado )
-2. Em **Configuração de bloqueio do acesso público deste bucket**, desmareque a opção de **Bloquear todo o acesso público**.
-3. Depois clique em **Criar bucket**.
+
+
+![S3](images/s3-acl-bucket.png)
+
+   
+3. Em **Configuração de bloqueio do acesso público deste bucket**, desmareque a opção de **Bloquear todo o acesso público**.
+
+
+![S3](images/s3-publico.png)
+
+
+5. Depois clique em **Criar bucket**.
 
 
 ### 1.3 Configurar Permissões
 1. No console do S3, selecione o bucket que você acabou de criar.
-2. Vá até a aba **"Permissões"**.
-3. Adicione uma política de bucket para permitir acesso público. Uma política básica pode ser assim:
+
+
+![S3](images/s3-selecionar-bucket.png)
+
+   
+3. Vá até a aba **"Permissões"**.
+
+
+![S3](images/s3-bucket-ir-para-permi.png)
+
+
+5. Adicione uma política de bucket para permitir acesso público. Uma política básica pode ser assim:
    
    ```json
    {
@@ -61,10 +98,30 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 ### 1.4 Hospedagem de site estático
 1. No console do S3, selecione o bucket que você criou.
 2. Vá até **Propriedades**.
-3. E selecione **Hospedagem de site estático**, e clique em **editar**.
-4. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
-5. Em **Documneto de ídice**, adicione o html do swagger.
-6. Salve as alterações e volte para a Console do S3.
+
+
+![S3](images/s3-bucket-ir-propriedade.png)
+
+
+4. E selecione **Hospedagem de site estático**, e clique em **editar**.
+
+
+![S3](images/s3-site-static.png)
+
+
+6. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
+
+
+![S3](images/s3-hospedar-static.png)
+
+
+8. Em **Documneto de ídice**, adicione o html do swagger.
+
+
+![S3](images/s3-index.png)
+
+
+10. Salve as alterações e volte para a Console do S3.
 
 
 ### 1.5 Adicionar arquivos ao bucket
@@ -72,7 +129,12 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 2. Selecione os arquivos que havia configurado no passo anterior.
 3. Desça a tela até **Propriedades** e clique.
 4. Procure por **Metadados** e adicione o seguinte metadado ( **Tipo: Definido pelo sistema** | **Chave: Content-Type** | Valor: **text/html; charset=UTF-8** ) e finalize clicando em **Carregar** ).
-5. Pronto o seu html já está na web, para ver ele basta selecionar sua bucket ir em **Propriedades** ir até **Hospedagem de site estático** e lá estará a URL, cole no seu navegador e pronto.
+
+
+![S3](images/s3-meta-fim.png)
+
+   
+6. Pronto o seu html já está na web, para ver ele basta selecionar sua bucket ir em **Propriedades** ir até **Hospedagem de site estático** e lá estará a URL, cole no seu navegador e pronto.
 
 
 ## Configuração da EC2
@@ -83,20 +145,57 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 
 1. Abra a console da AWS.
 2. Na barra de pesquisa, procure por **VPC**.
-3. Clique em **Criar VPC**.
-4. Selecione **VPC e muito mais** para criar a VPC e outros recursos de rede.
-5. Escolha um nome para sua VPC.
-6. No final da tela, clique em **Criar VPC** para finalizar o processo.
+
+
+![VPC](images/vpc-pesquisa.png)
+
+
+4. Clique em **Criar VPC**.
+
+
+![VPC](images/criar-vpc-dps-de-pesquisa.png)
+
+   
+6. Selecione **VPC e muito mais** para criar a VPC e outros recursos de rede.
+
+
+![VPC](images/vpc-e-mais.png)
+
+
+8. Escolha um nome para sua VPC.
+
+
+![VPC](images/nome-da-vpc.png)
+
+   
+10. No final da tela, clique em **Criar VPC** para finalizar o processo.
+
+
+![VPC](images/criar-vpc-final.png)
+
 
 ### Configuração Security Group
 
 #### Detalhes básicos 
 
 1. No console da EC2, vá para **Security groups**.
-2. Clique em **Criar grupo de segurança**.
-3. Escolha um nome para o security group.
-4. Em **Descrição** insira uma breve descrição.
-5. Em **VPC** selecione a VPC que você criou.
+
+
+![SEC-GROUP](images/acessar-sec.png)
+
+   
+3. Clique em **Criar grupo de segurança**.
+
+
+![SEC-GROUP](images/acessar-sec.png)
+
+
+5. Escolha um nome para o security group.
+6. Em **Descrição** insira uma breve descrição.
+7. Em **VPC** selecione a VPC que você criou.
+
+![SEC-GROUP](images/nome-e-desc-sec.png)
+
 
 #### Regras de entrada
 
@@ -114,7 +213,14 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 1. **Todo o tráfego**:
       Defina o **Destino**: **Qualquer IPv4**.
 
+
+![SEC-GROUP](images/regras-sec.png)
+
+
 2. Clique em **Criar grupo de segurança**.
+
+
+![SEC-GROUP](images/criar-sec-final.png)
 
 
 ### Configuração de Key Pair
@@ -122,9 +228,12 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 1. No console da EC2, vá para **Pares de chaves**.
 2. Clique em **Criar par de chaves**.
 3. Escolha um nome para seu par de chaves.
-4. Tipo de par de chaves deixe como **RSA**.
-5. Formato de arquivo de chave privada deixe como `.pem`
-6. Clique em **Criar par de chaves**
+
+![SEC-GROUP](images/par-de-chaves.png)
+   
+5. Tipo de par de chaves deixe como **RSA**.
+6. Formato de arquivo de chave privada deixe como `.pem`
+7. Clique em **Criar par de chaves**
 
 Após esses passo um arquivo será baixado em seu computador, será a sua chave.
 Guarde ela o lugar onde ela está.
