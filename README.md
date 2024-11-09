@@ -123,7 +123,7 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 2. Clique em **Criar par de chaves**.
 3. Escolha um nome para seu par de chaves.
 4. Tipo de par de chaves deixe como **RSA**.
-5. Formato de arquivo de chave privada deixe como ```bash .pem ```
+5. Formato de arquivo de chave privada deixe como `.pem`
 6. Clique em **Criar par de chaves**
 
 Após esses passo um arquivo será baixado em seu computador, será a sua chave.
@@ -139,15 +139,15 @@ Se você for utilizar o **PuTTy** siga esses passos:
 #### Converter a Chave PEM para PPK
 
 1. Abra o **PuTTYgen**.
-2. Carregue o arquivo PEM da sua chave. ( Passo realizado em [Configuração de Key Pair](#configuração-da-key-pair ).
-3. Para carregar o arquivo PEM, clique em **Load** e depois selecione o arquivo ```bash .pem ``` ( mude o tipo de arquivo para "All Files" ).
-4. Salve o arquivo PPK, após carregar o ```bash .pem ```, clique em **Save private key** e guarde o arquivo ```bash .ppk ```.
+2. Carregue o arquivo PEM da sua chave. ( Passo realizado em [Configuração de Key Pair](#configuração-de-key-pair) ).
+3. Para carregar o arquivo PEM, clique em **Load** e depois selecione o arquivo `.pem` ( mude o tipo de arquivo para "All Files" ).
+4. Salve o arquivo PPK, após carregar o `.pem `, clique em **Save private key** e guarde o arquivo `bash .ppk `.
 
 #### Acessar a Instância com PuTTY
 
 1. Abra o **PuTTY**.
-2. No campo **Host Name (or IP address)**, insira ```bash ec2-user@{your-ec2-public-dns} ```
-3. Em **Connection** > **SSH** > **Auth**, selecione o arquivo  ```bash .ppk ```.
+2. No campo **Host Name (or IP address)**, insira `bash ec2-user@{your-ec2-public-dns}`
+3. Em **Connection** > **SSH** > **Auth**, selecione o arquivo  `.ppk`.
 4. Em Session, salve a configuração para reutilizar e clique em Open para conectar-se.
 
 
@@ -162,7 +162,7 @@ Se for utilizar o **MobaXterm** siga esses passos:
 5. Em **Remote host** insira o IP público de sua instância.
 6. Marque a opção **Specify username** e digite **ec2-user**.
 7. Clique **Advanced SSH settings**.
-8. Marque a opção **Use private key** e selecione o arquivo ```bash .pem ``` da sua chave.
+8. Marque a opção **Use private key** e selecione o arquivo `.pem` da sua chave.
 9. Com a sessão configurada, clique duas vezes sobre ela no painel esquerdo do MobaXterm para iniciar a conexão.
    
 ## Criando instância EC2
