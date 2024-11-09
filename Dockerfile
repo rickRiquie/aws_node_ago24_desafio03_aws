@@ -15,5 +15,3 @@ RUN chmod +x /app/wait-for-it.sh
 COPY . .
 
 EXPOSE 8080
-
-CMD ["sh", "-c", "./wait-for-it.sh db:3306 -- npm run migration:run && npm run dev"]
