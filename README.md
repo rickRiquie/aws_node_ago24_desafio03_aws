@@ -198,10 +198,10 @@ Se for utilizar o **MobaXterm** siga esses passos:
 
 8. Agora informe as suas configurações de rede e segurança:
 
-Informe sua **VPC** [Configuração da VPC](#configuração-da-vpc).
-Informe a **Sub-rede**.
-Habilite o **IP público**.
-Selecione o **Security Group** [Configuração Security Group](#configuração-do-security-group)
+- Informe sua **VPC** [Configuração da VPC](#configuração-da-vpc).
+- Informe a **Sub-rede**.
+- Habilite o **IP público**.
+- Selecione o **Security Group** [Configuração Security Group](#configuração-do-security-group)
 
 ![Tags](images/conf-redes.png)
 
