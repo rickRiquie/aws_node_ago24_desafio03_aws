@@ -40,4 +40,3 @@ class Customer implements ICustomer {
 }
 
 export default Customer;
-

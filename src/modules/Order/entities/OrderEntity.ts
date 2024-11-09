@@ -63,4 +63,3 @@ export default class Order implements IOrder {
   @JoinColumn()
   car!: Cars;
 }
-

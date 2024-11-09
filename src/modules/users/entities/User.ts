@@ -27,4 +27,3 @@ export default class User implements IUser {
   @DeleteDateColumn()
   deletedAt?: Date | null;
 }
-
