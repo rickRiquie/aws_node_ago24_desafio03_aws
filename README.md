@@ -1,4 +1,4 @@
-# AWS_NODE_AGO24_DESAFIO_03_AWS
+# API CompassCar - Deploy AWS 
 
 Anteriormente foi craida uma API RESTful projetada para o gerenciamento da locação de carros. Que permite o gerenciamento de usuários, o cadastro de clientes, o controle de carros disponíveis para locação e a criação e acompanhamento de pedidos de locação.
 
@@ -14,43 +14,15 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos:
 - **Git**: O Git será instalado diretamente na instância EC2 para clonar o repositório e gerenciar o código-fonte.
 
 
-## Estrutura do Projeto
-
-A estrutura do projeto é organizada da seguinte maneira:
-
-- **src/**: Contém o código fonte da aplicação.
-- **controllers/**: Responsável pela lógica que manipula as requisições e respostas da API.
-- **services/**: Implementa a lógica de negócio e interage com os repositórios.
-- **repositories/**: Este diretório contém os repositórios que gerenciam a interação com o banco de dados.
-- **routes/**: Define as rotas da API e associa cada rota ao seu respectivo controlador.
-- **shared/**: Inclui middlewares, erros para manipulação de requisições e respostas. E routes que define as rotas da API e associa cada rota ao seu respectivo controlador .
-- **server.ts**: Arquivo principal que inicializa o servidor e configura as rotas.
-- **test/**: Contém testes automatizados para garantir a qualidade do código.
-- **db/**: Contém arquivo do banco de dados, que são usados para garantir a conexão.
-
-### Descrição dos Arquivos de Configuração
-
-- **.prettierrc**: Contém as configurações do Prettier, que definem as regras de formatação do código, como largura da linha e estilo de aspas.
-- **.prettierignore**: Lista os arquivos e diretórios que devem ser ignorados pelo Prettier durante a formatação.
-- **eslint.config.mjs**: Configuração do ESLint, que ajuda a identificar e corrigir problemas de estilo e erros no código.
-- **jest.config.js**: Configurações do Jest, que definem como os testes automatizados devem ser executados.
-- **swagger.yaml**: Arquivo de configuração para o Swagger, que descreve a API e suas rotas, permitindo a geração de documentação interativa.
-- **.env.example**: Um exemplo do arquivo de configuração de variáveis de ambiente.
-
-- **.gitignore**: Arquivo que especifica quais arquivos e diretórios devem ser ignorados pelo Git.
-
-- **package.json**: Contém informações sobre o projeto, dependências e scripts.
-
-- **tsconfig.json**: Configuração do TypeScript, que define as opções do compilador e o comportamento da transpilação.
-
 ## **Gerando o HTML do Swagger**
 
 Para gerar o HTML do Swagger, utilizei a biblioteca **Redocly**, que permite a criação de uma interface interativa para visualizar a documentação da API. Abaixo estão os passos para gerar o arquivo `index.html` com base no arquivo `swagger.yml`:
 
 Redocly pode ser utilizado diretamente via **npx**, portanto, não é necessário instalar a biblioteca globalmente. O comando abaixo utiliza **npx** para executar o Redocly:
 
+```bash
 npx @redocly/cli build-docs ./swagger.yml -o ./index.html
-
+```
 ### Configuração do S3
 
 #### 1.1 Criar um Bucket no S3
