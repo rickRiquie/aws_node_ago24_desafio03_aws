@@ -44,16 +44,14 @@ A estrutura do projeto é organizada da seguinte maneira:
 - **tsconfig.json**: Configuração do TypeScript, que define as opções do compilador e o comportamento da transpilação.
 
 ## **Gerando o HTML do Swagger**
+
 Para gerar o HTML do Swagger, utilizei a biblioteca **Redocly**, que permite a criação de uma interface interativa para visualizar a documentação da API. Abaixo estão os passos para gerar o arquivo `index.html` com base no arquivo `swagger.yml`:
 
 Redocly pode ser utilizado diretamente via **npx**, portanto, não é necessário instalar a biblioteca globalmente. O comando abaixo utiliza **npx** para executar o Redocly:
 
-```bash
 npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
-## Passos para o Deploy
-
-## Configuração do S3
+### Configuração do S3
 
 #### 1.1 Criar um Bucket no S3
 1. Acesse o console do Amazon S3.
