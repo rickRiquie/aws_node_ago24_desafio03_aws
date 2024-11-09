@@ -169,12 +169,48 @@ Se for utilizar o **MobaXterm** siga esses passos:
 
 1. Abra o Console AWS e vá até a página do **EC2**.
 2. No painel EC2, clique em **Executar instância**.
-3. Em seguida crie as Tags:
+
+![Tags](images/exec-instance.png)
+
+4. Em seguida crie as Tags:
 
 ![Tags](images/tags.png)
     
 **Importante**: Essas tags são importantes, pois estão de acordo com os atributos da política (ABAC) atribuída às contas do Scholarship Program. 
 
+
+5. Sugestão de criação da imagem da sua VM:
+
+![Tags](images/distribuicao-aws-linux.png)
+
+![Tags](images/tipo-instancia-t2micro.png)
+
+
+6. Informe o par de chaves criado anteriormente ( [Configuração de Key Pair](#configuração-de-key-pair) ).
+
+![Tags](images/par-de-chaves.png)
+
+
+7. Em **Configuração de Rede** clique em **Editar**.
+
+![Tags](images/edita-conf-rede.png)
+
+
+8. Agora informe as suas configurações de rede e segurança:
+
+Informe sua **VPC** [Configuração da VPC](#configuração-da-vpc).
+Informe a **Sub-rede**.
+Habilite o **IP público**.
+Selecione o **Security Group** [Configuração Security Group](#configuração-do-security-group)
+
+![Tags](images/conf-redes.png)
+
+**Atenção!** Informe suas configurações com atenção, é importante que elas estejam corretas.
+
+
+9. Ao lado, você verá o quadro Resumo. Agora, basta clicar em Executar instância.
+
+![Tags](images/resumo-ec2.png)
 
 
    
