@@ -171,6 +171,7 @@ Se for utilizar o **MobaXterm** siga esses passos:
 2. No painel EC2, clique em **Executar instância**.
 3. Em seguida crie as Tags:
 
+![Tags](images/tags.png)
     
 **Importante**: Essas tags são importantes, pois estão de acordo com os atributos da política (ABAC) atribuída às contas do Scholarship Program. 
 
