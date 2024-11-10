@@ -4,6 +4,24 @@ Anteriormente foi craida uma API RESTful projetada para o gerenciamento da loca�
 
 Nesta etapa será realizada o deploy dessa API utilizando serviços da AWS.
 
+## Índice de Passos
+
+Para facilitar a navegação, você pode acessar diretamente as etapas do deploy abaixo:
+
+- [Pré-requisitos](#pré-requisitos)
+- [Configuração do S3](#configuração-do-s3)
+- [Configuração da EC2](#configuração-da-ec2)
+- [Configuração da VPC](#configuração-da-vpc)
+- [Configuração Security Group](#configuração-do-security-group)
+- [Configuração de Key Pair](#configuração-de-key-pair)
+- [Criando instância EC2](#criando-instância-ec2)
+- [Utilizando PuTTy e PuTTYgen](#utilizando-putty)
+- [Utilizando MobaXterm](#utilizando-mobaxterm)
+- [Hora do deploy](#hora-do-deploy)
+- 
+
+---
+
 ## Pré-requisitos
 
 Antes de começar, verifique se você tem os seguintes pré-requisitos:
@@ -290,7 +308,7 @@ Lembre-se de onde ela está. Se preferir, crie um pasta para a sua chave.
 ![Tags](images/tipo-instancia-t2micro.png)
 
 
-5. Informe o par de chaves criado anteriormente ( [Configuração de Key Pair](#configuração-de-key-pair) ).
+5. Informe o par de chaves criado anteriormente [Configuração de Key Pair](#configuração-de-key-pair).
 
 ![Tags](images/par-de-chaves.png)
 
@@ -331,7 +349,7 @@ Aqui estão duas formas comuns:
 #### Passo 1: Converter a Chave PEM para PPK
 
 1. Abra o **PuTTYgen**.
-2. Carregue o arquivo PEM da sua chave. ( Passo realizado em [Configuração de Key Pair](#configuração-de-key-pair) ).
+2. Carregue o arquivo PEM da sua chave. Passo realizado em [Configuração de Key Pair](#configuração-de-key-pair).
 3. Para carregar o arquivo PEM, clique em **Load** e depois selecione o arquivo `.pem` ( mude o tipo de arquivo para "All Files" ).
 4. Salve o arquivo PPK, após carregar o `.pem `, clique em **Save private key** e guarde o arquivo `bash .ppk `.
 
@@ -368,9 +386,9 @@ Este guia passo a passo explica como **deployar** a API CompassCar utilizando **
 
 Antes de começar, você precisará de:
 
-- Uma **instância EC2** na AWS com o sistema **Amazon Linux**. ( Passo a passo em: [Configuração da EC2](#configuração-da-ec2) e [Criando instância EC2](#criando-instância-ec2) )
-- Acesso **SSH** à instância. ( Passo a passo em: [Utilizando PuTTy e PuTTYgen](#utilizando-putty) e [Utilizando MobaXterm](#utilizando-mobaxterm)
-- A **chave SSH** para conectar à instância EC2. ( Passo a passo em: [Configuração de Key Pair](#configuração-de-key-pair) )
+- Uma **instância EC2** na AWS com o sistema **Amazon Linux**. Passo a passo em: [Configuração da EC2](#configuração-da-ec2) e [Criando instância EC2](#criando-instância-ec2).
+- Acesso **SSH** à instância. Passo a passo em: [Utilizando PuTTy e PuTTYgen](#utilizando-putty) e [Utilizando MobaXterm](#utilizando-mobaxterm).
+- A **chave SSH** para conectar à instância EC2. Passo a passo em: [Configuração de Key Pair](#configuração-de-key-pair).
 - Conta no **GitHub** para clonar o repositório.
 
 ## Passo 1: Conectar à sua Instância EC2
