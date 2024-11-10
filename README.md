@@ -18,7 +18,6 @@ Para facilitar a navegação, você pode acessar diretamente as etapas do deploy
 - [Utilizando PuTTy e PuTTYgen](#utilizando-putty-e-puttygen)
 - [Utilizando MobaXterm](#utilizando-mobaxterm)
 - [Hora do deploy](#hora-do-deploy)
-- 
 
 ---
 
