@@ -199,7 +199,7 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 2. Clique em **Criar grupo de segurança**.
 
 
-![SEC-GROUP](sec-gp-criar-gps-init.png)
+![SEC-GROUP](images/sec-gp-criar-gps-init.png)
 
 
 3. Escolha um nome para o security group.
@@ -313,7 +313,7 @@ Lembre-se de onde ela está. Se preferir, crie um pasta para a sua chave.
 **Importante!** Para acessar a instância é preciso se conectar através de SSH e você tem várias formas de fazer isso.
 Aqui estão duas formas comuns:
 
-###Se você for utilizar o **PuTTy** siga esses passos:###
+### Se você for utilizar o **PuTTy** siga esses passos:
 
 #### Baixar e Instalar PuTTy e PuTTYgen
 
@@ -335,7 +335,7 @@ Aqui estão duas formas comuns:
 4. Em Session, salve a configuração para reutilizar e clique em Open para conectar-se.
 
 
-###Se for utilizar o **MobaXterm** siga esses passos:###
+### Se for utilizar o **MobaXterm** siga esses passos:
 
 #### Baixar e Instalar MobaXterm
 
