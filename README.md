@@ -109,32 +109,37 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 ![S3](images/s3-site-static.png)
 
 
-6. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
+5. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
+
+
+6. Em **Documneto de ídice**, adicione `index.html`.
+
+7. Salve as alterações e volte para a Console do S3.
 
 
 ![S3](images/s3-hospedar-static.png)
 
 
-8. Em **Documneto de ídice**, adicione o html do swagger.
-
-
-![S3](images/s3-index.png)
-
-
-10. Salve as alterações e volte para a Console do S3.
-
-
 ### 1.5 Adicionar arquivos ao bucket
-1. No console do S3, clique em **Carregar**.
-2. Selecione os arquivos que havia configurado no passo anterior.
-3. Desça a tela até **Propriedades** e clique.
-4. Procure por **Metadados** e adicione o seguinte metadado ( **Tipo: Definido pelo sistema** | **Chave: Content-Type** | Valor: **text/html; charset=UTF-8** ) e finalize clicando em **Carregar** ).
 
+1. No console do S3, clique em **Carregar**.
+
+
+![S3](images/s3-carregar.png)
+
+
+2. Clique em **Adicionar arquivos**, selecione o arquivo html do swagger ( `index.html`)
+
+3. Desça a tela até **Propriedades** e clique.
+
+4. Procure por **Metadados** e adicione o seguinte metadado ( **Tipo: Definido pelo sistema** | **Chave: Content-Type** | Valor: **text/html; charset=UTF-8** ) e finalize clicando em **Carregar** ).
+   
 
 ![S3](images/s3-meta-fim.png)
 
-   
-6. Pronto o seu html já está na web, para ver ele basta selecionar sua bucket ir em **Propriedades** ir até **Hospedagem de site estático** e lá estará a URL, cole no seu navegador e pronto.
+
+
+**Pronto o seu html já está na web, para ver ele basta selecionar sua bucket ir em **Propriedades** ir até **Hospedagem de site estático** e lá estará a URL, cole no seu navegador e pronto.**
 
 
 ## Configuração da EC2
@@ -226,17 +231,28 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 ### Configuração de Key Pair
 
 1. No console da EC2, vá para **Pares de chaves**.
-2. Clique em **Criar par de chaves**.
-3. Escolha um nome para seu par de chaves.
 
-![SEC-GROUP](images/par-de-chaves.png)
-   
+
+![KEYS](images/keys-ir-para.png)
+
+
+3. Clique em **Criar par de chaves**.
+
+
+![KEYS](images/keys-criar-init.png)
+
+
+4. Escolha um nome para seu par de chaves.
 5. Tipo de par de chaves deixe como **RSA**.
 6. Formato de arquivo de chave privada deixe como `.pem`
 7. Clique em **Criar par de chaves**
 
-Após esses passo um arquivo será baixado em seu computador, será a sua chave.
-Guarde ela o lugar onde ela está.
+
+![KEYS](images/keys-par-de.png)
+
+
+**Importante!** Após esses passo um arquivo será baixado em seu computador, será a sua chave.
+Guarde o lugar onde ela está.
 
 Se você for utilizar o **PuTTy** siga esses passos:
 
