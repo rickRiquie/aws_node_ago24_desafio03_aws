@@ -120,10 +120,11 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
 5. Em **Documneto de ídice**, adicione `index.html`.
 
-6. Salve as alterações e volte para a Console do S3.
-
 
 ![S3](images/s3-hospedar-static.png)
+
+
+6. Salve as alterações e volte para a Console do S3.
 
 
 ### 1.5 Adicionar arquivos ao bucket
@@ -198,7 +199,7 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 2. Clique em **Criar grupo de segurança**.
 
 
-![SEC-GROUP](images/acessar-sec.png)
+![SEC-GROUP](sec-gp-criar-gps-init.png)
 
 
 3. Escolha um nome para o security group.
@@ -258,44 +259,9 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 
 
 **Importante!** Após esses passo um arquivo será baixado em seu computador, será a sua chave.
-Guarde o lugar onde ela está.
-
-Se você for utilizar o **PuTTy** siga esses passos:
-
-#### Baixar e Instalar PuTTy e PuTTYgen
-
-1. Baixe [PuTTY e PuTTYgen](https://www.putty.org/)
-2. Instale os programas
-
-#### Converter a Chave PEM para PPK
-
-1. Abra o **PuTTYgen**.
-2. Carregue o arquivo PEM da sua chave. ( Passo realizado em [Configuração de Key Pair](#configuração-de-key-pair) ).
-3. Para carregar o arquivo PEM, clique em **Load** e depois selecione o arquivo `.pem` ( mude o tipo de arquivo para "All Files" ).
-4. Salve o arquivo PPK, após carregar o `.pem `, clique em **Save private key** e guarde o arquivo `bash .ppk `.
-
-#### Acessar a Instância com PuTTY
-
-1. Abra o **PuTTY**.
-2. No campo **Host Name (or IP address)**, insira `bash ec2-user@{your-ec2-public-dns}`
-3. Em **Connection** > **SSH** > **Auth**, selecione o arquivo  `.ppk`.
-4. Em Session, salve a configuração para reutilizar e clique em Open para conectar-se.
+Lembre-se de onde ela está. Se preferir, crie um pasta para a sua chave.
 
 
-Se for utilizar o **MobaXterm** siga esses passos:
-
-#### Baixar e Instalar MobaXterm
-
-1. Baixe o [MobaXterm](https://mobaxterm.mobatek.net/download.html).
-2. Instale o MobaXterm no seu sistema.
-3. Abra o MobaXterm e vá para a opção **"Session"** no menu principal para iniciar uma nova conexão.
-4. Clique em **"SSH"** para conectar à sua instância EC2.
-5. Em **Remote host** insira o IP público de sua instância.
-6. Marque a opção **Specify username** e digite **ec2-user**.
-7. Clique **Advanced SSH settings**.
-8. Marque a opção **Use private key** e selecione o arquivo `.pem` da sua chave.
-9. Com a sessão configurada, clique duas vezes sobre ela no painel esquerdo do MobaXterm para iniciar a conexão.
-   
 ## Criando instância EC2
 
 1. Abra o Console AWS e vá até a página do **EC2**.
@@ -343,6 +309,45 @@ Se for utilizar o **MobaXterm** siga esses passos:
 
 ![Tags](images/resumo-ec2.png)
 
+
+**Importante!** Para acessar a instância é preciso se conectar através de SSH e você tem várias formas de fazer isso.
+Aqui estão duas formas comuns:
+
+###Se você for utilizar o **PuTTy** siga esses passos:###
+
+#### Baixar e Instalar PuTTy e PuTTYgen
+
+1. Baixe [PuTTY e PuTTYgen](https://www.putty.org/)
+2. Instale os programas
+
+#### Converter a Chave PEM para PPK
+
+1. Abra o **PuTTYgen**.
+2. Carregue o arquivo PEM da sua chave. ( Passo realizado em [Configuração de Key Pair](#configuração-de-key-pair) ).
+3. Para carregar o arquivo PEM, clique em **Load** e depois selecione o arquivo `.pem` ( mude o tipo de arquivo para "All Files" ).
+4. Salve o arquivo PPK, após carregar o `.pem `, clique em **Save private key** e guarde o arquivo `bash .ppk `.
+
+#### Acessar a Instância com PuTTY
+
+1. Abra o **PuTTY**.
+2. No campo **Host Name (or IP address)**, insira `bash ec2-user@{your-ec2-public-dns}`
+3. Em **Connection** > **SSH** > **Auth**, selecione o arquivo  `.ppk`.
+4. Em Session, salve a configuração para reutilizar e clique em Open para conectar-se.
+
+
+###Se for utilizar o **MobaXterm** siga esses passos:###
+
+#### Baixar e Instalar MobaXterm
+
+1. Baixe o [MobaXterm](https://mobaxterm.mobatek.net/download.html).
+2. Instale o MobaXterm no seu sistema.
+3. Abra o MobaXterm e vá para a opção **"Session"** no menu principal para iniciar uma nova conexão.
+4. Clique em **"SSH"** para conectar à sua instância EC2.
+5. Em **Remote host** insira o IP público de sua instância.
+6. Marque a opção **Specify username** e digite **ec2-user**.
+7. Clique **Advanced SSH settings**.
+8. Marque a opção **Use private key** e selecione o arquivo `.pem` da sua chave.
+9. Com a sessão configurada, clique duas vezes sobre ela no painel esquerdo do MobaXterm para iniciar a conexão.
 
    
 
