@@ -10,7 +10,7 @@ Antes de começar, verifique se você tem os seguintes pré-requisitos:
 
 - **Uma conta na AWS**: Uma conta na AWS para criar e gerenciar recursos como EC2, S3, etc.
 - **Amazon S3**: Uma configuração de bucket no S3 para armazenar e disponibilizar o Swagger. Certifique-se de que o bucket esteja criado e configurado para acesso público, conforme descrito na seção [Configuração do S3](#configuração-do-s3).
-- **Instância EC2**: O deploy da aplicação será realizado em uma instância EC2. Você pode criar uma instância seguindo as instruções na seção [Criando instância EC2](#criando-instância-ec2).
+- **Instância EC2**: O deploy da aplicação será realizado em uma instância EC2. Você pode criar uma instância seguindo as instruções na seção [Configuração da EC2](#configuração-da-ec2) e [Criando instância EC2](#criando-instância-ec2) 
 - **Git**: O Git será instalado diretamente na instância EC2 para clonar o repositório e gerenciar o código-fonte.
 
 
@@ -67,7 +67,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
 
 ### 1.3 Configurar Permissões
-1. No console do S3, selecione o bucket que você acabou de criar.
+1. No console do S3, entre no bucket que você acabou de criar.
 
 
 ![S3](images/s3-selecionar-bucket.png)
@@ -79,7 +79,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 ![S3](images/s3-bucket-ir-para-permi.png)
 
 
-3. Ache por **Política do bucket** e clique em **Editar**.
+3. Procure por **Política do bucket** e clique em **Editar**.
 
 
 ![S3](images/s3-politica-do-bucket.png)
@@ -102,14 +102,14 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
 
 ### 1.4 Hospedagem de site estático
-1. No console do S3, selecione o bucket que você criou.
+1. No console do S3, entre no bucket que você criou.
 2. Vá até **Propriedades**.
 
 
 ![S3](images/s3-bucket-ir-propriedade.png)
 
 
-3. E selecione **Hospedagem de site estático**, e clique em **editar**.
+3. Procure por **Hospedagem de site estático**, e clique em **editar**.
 
 
 ![S3](images/s3-site-static.png)
