@@ -16,4 +16,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "./wait-for-it.sh db:3306 -- npm run migration:run && npm run dev"]
+CMD ["sh", "-c", "./wait-for-it.sh db:3306 -t 45 -- npm run migration:run && npm run dev"]
