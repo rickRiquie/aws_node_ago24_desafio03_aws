@@ -322,7 +322,7 @@ Lembre-se de onde ela está. Se preferir, crie um pasta para a sua chave.
 - Informe sua **VPC** [Configuração da VPC](#configuração-da-vpc).
 - Informe a **Sub-rede**.
 - Habilite o **IP público**.
-- Selecione o **Security Group** [Configuração Security Group](#configuração-do-security-group)
+- Selecione o **Security Group** [Configuração Security Group](#configuração-security-group)
 
 ![Tags](images/conf-redes.png)
 
