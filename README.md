@@ -33,7 +33,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 ![S3](images/s3-pesquisa.png)
 
    
-2. Selecione a **região** onde deseja criar o bucket.
+3. Selecione a **região** onde deseja criar o bucket.
 
 
 ![S3](images/s3-region.png)
@@ -44,7 +44,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
 ![S3](images/s3-criar-bucket.png)
 
-6. Escolha um **nome único** para o bucket ( por exemplo, `aws-node-ago-meu-bucket` ).
+5. Escolha um **nome único** para o bucket ( por exemplo, `aws-node-ago-meu-bucket` ).
 
 
 ![S3](images/s3-name-bucket.png)
@@ -57,13 +57,13 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 ![S3](images/s3-acl-bucket.png)
 
    
-3. Em **Configuração de bloqueio do acesso público deste bucket**, desmareque a opção de **Bloquear todo o acesso público**.
+2. Em **Configuração de bloqueio do acesso público deste bucket**, desmareque a opção de **Bloquear todo o acesso público**.
 
 
 ![S3](images/s3-publico.png)
 
 
-5. Depois clique em **Criar bucket**.
+3. Depois clique em **Criar bucket**.
 
 
 ### 1.3 Configurar Permissões
@@ -73,13 +73,19 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 ![S3](images/s3-selecionar-bucket.png)
 
    
-3. Vá até a aba **"Permissões"**.
+2. Vá até a aba **"Permissões"**.
 
 
 ![S3](images/s3-bucket-ir-para-permi.png)
 
 
-5. Adicione uma política de bucket para permitir acesso público. Uma política básica pode ser assim:
+3. Ache por **Política do bucket** e clique em **Editar**.
+
+
+![S3](images/s3-politica-do-bucket.png)
+
+
+4. Adicione uma política de bucket para permitir acesso público. Uma política básica pode ser assim:
    
    ```json
    {
@@ -103,18 +109,18 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 ![S3](images/s3-bucket-ir-propriedade.png)
 
 
-4. E selecione **Hospedagem de site estático**, e clique em **editar**.
+3. E selecione **Hospedagem de site estático**, e clique em **editar**.
 
 
 ![S3](images/s3-site-static.png)
 
 
-5. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
+4. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
 
 
-6. Em **Documneto de ídice**, adicione `index.html`.
+5. Em **Documneto de ídice**, adicione `index.html`.
 
-7. Salve as alterações e volte para a Console do S3.
+6. Salve as alterações e volte para a Console do S3.
 
 
 ![S3](images/s3-hospedar-static.png)
@@ -155,25 +161,25 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 ![VPC](images/vpc-pesquisa.png)
 
 
-4. Clique em **Criar VPC**.
+3. Clique em **Criar VPC**.
 
 
 ![VPC](images/criar-vpc-dps-de-pesquisa.png)
 
    
-6. Selecione **VPC e muito mais** para criar a VPC e outros recursos de rede.
+4. Selecione **VPC e muito mais** para criar a VPC e outros recursos de rede.
 
 
 ![VPC](images/vpc-e-mais.png)
 
 
-8. Escolha um nome para sua VPC.
+5. Escolha um nome para sua VPC.
 
 
 ![VPC](images/nome-da-vpc.png)
 
    
-10. No final da tela, clique em **Criar VPC** para finalizar o processo.
+6. No final da tela, clique em **Criar VPC** para finalizar o processo.
 
 
 ![VPC](images/criar-vpc-final.png)
@@ -189,15 +195,15 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 ![SEC-GROUP](images/acessar-sec.png)
 
    
-3. Clique em **Criar grupo de segurança**.
+2. Clique em **Criar grupo de segurança**.
 
 
 ![SEC-GROUP](images/acessar-sec.png)
 
 
-5. Escolha um nome para o security group.
-6. Em **Descrição** insira uma breve descrição.
-7. Em **VPC** selecione a VPC que você criou.
+3. Escolha um nome para o security group.
+4. Em **Descrição** insira uma breve descrição.
+5. Em **VPC** selecione a VPC que você criou.
 
 ![SEC-GROUP](images/nome-e-desc-sec.png)
 
@@ -236,16 +242,16 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 ![KEYS](images/keys-ir-para.png)
 
 
-3. Clique em **Criar par de chaves**.
+2. Clique em **Criar par de chaves**.
 
 
 ![KEYS](images/keys-criar-init.png)
 
 
-4. Escolha um nome para seu par de chaves.
-5. Tipo de par de chaves deixe como **RSA**.
-6. Formato de arquivo de chave privada deixe como `.pem`
-7. Clique em **Criar par de chaves**
+3. Escolha um nome para seu par de chaves.
+4. Tipo de par de chaves deixe como **RSA**.
+5. Formato de arquivo de chave privada deixe como `.pem`
+6. Clique em **Criar par de chaves**
 
 
 ![KEYS](images/keys-par-de.png)
@@ -297,31 +303,31 @@ Se for utilizar o **MobaXterm** siga esses passos:
 
 ![Tags](images/exec-instance.png)
 
-4. Em seguida crie as Tags:
+3. Em seguida crie as Tags:
 
 ![Tags](images/tags.png)
     
 **Importante**: Essas tags são importantes, pois estão de acordo com os atributos da política (ABAC) atribuída às contas do Scholarship Program. 
 
 
-5. Sugestão de criação da imagem da sua VM:
+4. Sugestão de criação da imagem da sua VM:
 
 ![Tags](images/distribuicao-aws-linux.png)
 
 ![Tags](images/tipo-instancia-t2micro.png)
 
 
-6. Informe o par de chaves criado anteriormente ( [Configuração de Key Pair](#configuração-de-key-pair) ).
+5. Informe o par de chaves criado anteriormente ( [Configuração de Key Pair](#configuração-de-key-pair) ).
 
 ![Tags](images/par-de-chaves.png)
 
 
-7. Em **Configuração de Rede** clique em **Editar**.
+6. Em **Configuração de Rede** clique em **Editar**.
 
 ![Tags](images/edita-conf-rede.png)
 
 
-8. Agora informe as suas configurações de rede e segurança:
+7. Agora informe as suas configurações de rede e segurança:
 
 - Informe sua **VPC** [Configuração da VPC](#configuração-da-vpc).
 - Informe a **Sub-rede**.
@@ -333,7 +339,7 @@ Se for utilizar o **MobaXterm** siga esses passos:
 **Atenção!** Informe suas configurações com atenção, é importante que elas estejam corretas.
 
 
-9. Ao lado, você verá o quadro Resumo. Agora, basta clicar em Executar instância.
+8. Ao lado, você verá o quadro Resumo. Agora, basta clicar em Executar instância.
 
 ![Tags](images/resumo-ec2.png)
 
