@@ -15,11 +15,10 @@ services:
       - db
     volumes:
       - .:/app
-      - /app/node_modules
     mem_limit: 512m
     cpus: 0.5
     command: >
-      sh -c "/app/wait-for-it.sh db:3306 -t 30 && npm run migration:run && npm run dev"
+      sh -c "/app/wait-for-it.sh db:3306 -- npm run migration:run && npm run dev"
 
   db:
     image: mysql:8.0
