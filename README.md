@@ -12,10 +12,10 @@ Para facilitar a navegação, você pode acessar diretamente as etapas do deploy
 - [Configuração do S3](#configuração-do-s3)
 - [Configuração da EC2](#configuração-da-ec2)
 - [Configuração da VPC](#configuração-da-vpc)
-- [Configuração Security Group](#configuração-do-security-group)
+- [Configuração Security Group](#configuração-security-group)
 - [Configuração de Key Pair](#configuração-de-key-pair)
 - [Criando instância EC2](#criando-instância-ec2)
-- [Utilizando PuTTy e PuTTYgen](#utilizando-putty)
+- [Utilizando PuTTy e PuTTYgen](#utilizando-putty-e-puttygen)
 - [Utilizando MobaXterm](#utilizando-mobaxterm)
 - [Hora do deploy](#hora-do-deploy)
 - 
