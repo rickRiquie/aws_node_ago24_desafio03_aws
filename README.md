@@ -1,4 +1,4 @@
-# API CompassCar - Deploy AWS ( Ricardo Amorim Pini de Alemida)
+# API CompassCar - Deploy AWS ( Ricardo Amorim Pini de Alemida )
 
 Anteriormente foi craida uma API RESTful projetada para o gerenciamento da locação de carros. Que permite o gerenciamento de usuários, o cadastro de clientes, o controle de carros disponíveis para locação e a criação e acompanhamento de pedidos de locação.
 
