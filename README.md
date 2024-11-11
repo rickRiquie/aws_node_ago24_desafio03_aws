@@ -423,7 +423,7 @@ chmod 600 ~/.ssh/authorized_keys
 Agora a proxima vez que for conectar a sua instância via terminal passe o caminho da sua nova chave privada, exemplo:
 
 ```bash
-ssh -i "/c/Users/seu-usuario/.ssh/sua-nova-chave-privada" ec2-user@<ec2-ip-address>
+ssh -i "/path/to/your-private-key/.ssh/sua-nova-chave-privada" ec2-user@<ec2-ip-address>
 ```
 
 ---
