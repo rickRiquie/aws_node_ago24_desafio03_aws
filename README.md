@@ -19,7 +19,7 @@ Para facilitar a navegação, você pode acessar diretamente as etapas do deploy
 - [Utilizando PuTTy e PuTTYgen](#utilizando-putty-e-puttygen)
 - [Utilizando MobaXterm](#utilizando-mobaxterm)
 - [Hora do deploy](#hora-do-deploy)
-- [Workflow de Deploy da API em Instância EC2](#workflow-de-deploy-da-api-em-instância-ec2)
+- [Deploy Automatizado para EC2 com GitHub Actions](#deploy-automatizado-para-ec2-com-github-actions)
   
 ---
 
@@ -683,7 +683,9 @@ PORT=8080
 NODE_ENV=production
 ```
 
-3. **Fazendo o Deploy**: O deploy será feito automaticamente sempre que houver um push na branch main. Para acionar manualmente o workflow, siga estas etapas:
+- Preencha os espações vazios com suas informações.
+
+3. **Fazendo o Deploy**: Para acionar manualmente o workflow, siga estas etapas:
     - Vá para a aba Actions do repositório.
     - Selecione o workflow Deploy para EC2.
     - Clique em Run workflow.
