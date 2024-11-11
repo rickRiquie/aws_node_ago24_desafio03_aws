@@ -60,9 +60,9 @@ jobs:
             sudo docker-compose up -d
           EOF
 
-      - name: Verificar status dos containers
+      - name: Rodar a API com npm run dev
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
-            docker ps
+            cd /home/ec2-user/api
+            npm run dev 
           EOF
-
