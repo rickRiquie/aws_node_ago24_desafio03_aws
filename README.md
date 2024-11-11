@@ -146,7 +146,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 4. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
 
 
-5. Em **Documneto de ídice**, adicione `index.html`.
+5. Em **Documneto de ídice**, adicione o nome do arquivo que irá usar, exemplo: `index.html`.
 
 
 ![S3](images/s3-hospedar-static.png)
