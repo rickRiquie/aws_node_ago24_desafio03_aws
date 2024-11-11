@@ -4,11 +4,12 @@ Anteriormente foi craida uma API RESTful projetada para o gerenciamento da loca�
 
 Nesta etapa será realizada o deploy dessa API utilizando serviços da AWS.
 
-## Índice de Passos
+## Índice
 
 Para facilitar a navegação, você pode acessar diretamente as etapas do deploy abaixo:
 
 - [Pré-requisitos](#pré-requisitos)
+- [Gerando o HTML do Swagger](#gerando-o-html-do-swagger)
 - [Configuração do S3](#configuração-do-s3)
 - [Configuração da EC2](#configuração-da-ec2)
 - [Configuração da VPC](#configuração-da-vpc)
