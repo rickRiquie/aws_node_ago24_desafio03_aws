@@ -31,17 +31,22 @@ jobs:
           node -v
           npm -v
 
-      - name: Instalar Docker e Docker Compose (Ubuntu/Debian)
+      - name: Instalar Git, Docker e Docker Compose
         run: |
-          sudo apt update -y
-          sudo apt install -y docker.io
-          sudo systemctl start docker
-          sudo systemctl enable docker
-          sudo usermod -aG docker $USER
-          docker --version
-          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-          docker-compose --version
+          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
+            cd /home/ec2-user/api
+            sudo yum update -y
+            sudo amazon-linux-extras enable docker
+            sudo yum install docker -y
+            sudo systemctl start docker
+            sudo systemctl enable docker
+            sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
+            sudo yum install -y git
+            docker --version
+            docker-compose --version
+            git --version
+            
 
 
       - name: Configurar variáveis de ambiente na instância
