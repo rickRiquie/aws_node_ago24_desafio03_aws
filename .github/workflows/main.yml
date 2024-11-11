@@ -45,9 +45,6 @@ jobs:
             nvm install 20.18.0
             nvm use 20.18.0
             node -v
-            git clone https://github.com/rickRiquie/aws_node_ago24_desafio03_aws.git
-            cd aws_node_ago24_desafio03_aws
-            nano .env
             npm install
             sudo docker-compose build
             sudo docker-compose up -d
