@@ -25,30 +25,18 @@ jobs:
 
       - name: Configurar variáveis de ambiente na instância
         run: |
-            ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << EOF
-              echo "MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}" > /home/ec2-user/api/.env
-              echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> /home/ec2-user/api/.env
-              echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> /home/ec2-user/api/.env
-              echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> /home/ec2-user/api/.env
-              echo "DB_HOST=${{ secrets.DB_HOST }}" >> /home/ec2-user/api/.env
-              echo "DB_USER=${{ secrets.DB_USER }}" >> /home/ec2-user/api/.env
-              echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> /home/ec2-user/api/.env
-              echo "DB_NAME=${{ secrets.DB_NAME }}" >> /home/ec2-user/api/.env
-              echo "DB_PORT=${{ secrets.DB_PORT }}" >> /home/ec2-user/api/.env
-              echo "PORT=${{ secrets.PORT }}" >> /home/ec2-user/api/.env
-              echo "NODE_ENV=${{ secrets.NODE_ENV }}" >> /home/ec2-user/api/.env
-              cat /home/ec2-user/api/.env  # Verificar se o arquivo .env foi criado corretamente
-            EOF
-
-      - name: Instalar Docker e Docker Compose na instância EC2
-        run: |
-          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
-            sudo yum update -y
-            sudo yum install -y docker
-            sudo service docker start
-            sudo usermod -aG docker ec2-user
-            curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            sudo chmod +x /usr/local/bin/docker-compose
+          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << EOF
+            echo "MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}" > /home/ec2-user/api/.env
+            echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> /home/ec2-user/api/.env
+            echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> /home/ec2-user/api/.env
+            echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> /home/ec2-user/api/.env
+            echo "DB_HOST=${{ secrets.DB_HOST }}" >> /home/ec2-user/api/.env
+            echo "DB_USER=${{ secrets.DB_USER }}" >> /home/ec2-user/api/.env
+            echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> /home/ec2-user/api/.env
+            echo "DB_NAME=${{ secrets.DB_NAME }}" >> /home/ec2-user/api/.env
+            echo "DB_PORT=${{ secrets.DB_PORT }}" >> /home/ec2-user/api/.env
+            echo "PORT=${{ secrets.PORT }}" >> /home/ec2-user/api/.env
+            echo "NODE_ENV=${{ secrets.NODE_ENV }}" >> /home/ec2-user/api/.env
           EOF
 
       - name: Instalar dependências e rodar containers
@@ -64,5 +52,5 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
             cd /home/ec2-user/api
-            npm run dev 
+            npm run dev
           EOF
