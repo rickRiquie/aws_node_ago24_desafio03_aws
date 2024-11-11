@@ -52,6 +52,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
             cd /home/ec2-user/api
-            npm run dev &
+            nohup npm run dev > /home/ec2-user/api/logs.txt 2>&1 &
           EOF
+
 
