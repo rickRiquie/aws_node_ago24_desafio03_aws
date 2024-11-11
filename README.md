@@ -162,7 +162,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
 4. Procure por **Metadados** e adicione o seguinte metadado:
    
-( **Tipo: `Definido pelo sistema` | **Chave: `Content-Type` | Valor: `text/html; charset=UTF-8` )
+**Tipo:** `Definido pelo sistema` | **Chave:** `Content-Type` | **Valor:** `text/html; charset=UTF-8`
 
 6. Finalize clicando em **Carregar** ).
    
