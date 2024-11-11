@@ -173,7 +173,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
 Agora, quando o arquivo for acessado via URL pública ou usado em sua aplicação, ele será exibido corretamente como HTML com suporte a caracteres UTF-8.
 
-6. Finalize clicando em **Carregar** ).
+5. Finalize clicando em **Carregar** ).
    
 
 ![S3](images/s3-meta-fim.png)
