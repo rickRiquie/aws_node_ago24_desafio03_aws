@@ -4,6 +4,11 @@ Anteriormente foi craida uma API RESTful projetada para o gerenciamento da loca�
 
 Nesta etapa será realizada o deploy dessa API utilizando serviços da AWS.
 
+## Links Externos
+
+- [Documentação do Swagger](https://aws-node-ago-24-bucket.s3.amazonaws.com/README.html)
+- [Repositório GitHub](https://github.com/rickRiquie/aws_node_ago24_desafio03_aws)
+
 ## Índice
 
 Para facilitar a navegação, você pode acessar diretamente as etapas do deploy abaixo:
