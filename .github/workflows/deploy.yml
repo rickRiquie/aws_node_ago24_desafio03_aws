@@ -24,17 +24,16 @@ jobs:
       - name: Instalar NVM e Node.js
         run: |
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-          source ~/.nvm/nvm.sh
-          nvm install 18
-          nvm use 18
-          nvm alias default 18
+          echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.bashrc
+          echo "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"" >> ~/.bashrc
+          source ~/.bashrc
+          nvm install 20.18.0
+          nvm use 20.18.0
           node -v
-          npm -v
 
       - name: Instalar Git, Docker e Docker Compose
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
-            cd /home/ec2-user/api
             sudo yum update -y
             sudo amazon-linux-extras enable docker
             sudo yum install docker -y
