@@ -171,6 +171,8 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
    
 **Tipo:** `Definido pelo sistema` | **Chave:** `Content-Type` | **Valor:** `text/html; charset=UTF-8`
 
+Agora, quando o arquivo for acessado via URL pública ou usado em sua aplicação, ele será exibido corretamente como HTML com suporte a caracteres UTF-8.
+
 6. Finalize clicando em **Carregar** ).
    
 
