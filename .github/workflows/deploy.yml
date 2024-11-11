@@ -21,16 +21,6 @@ jobs:
         run: |
           rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ ec2-user@${{ secrets.EC2_HOST }}:/home/ec2-user/api
 
-      - name: Instalar NVM e Node.js
-        run: |
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # Carrega o nvm
-          nvm install 20.18.0
-          nvm use 20.18.0
-          node -v
-
-
       - name: Instalar Git, Docker e Docker Compose
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
@@ -45,8 +35,7 @@ jobs:
             docker --version
             docker-compose --version
             git --version
-            
-
+          EOF
 
       - name: Configurar variáveis de ambiente na instância
         run: |
@@ -64,13 +53,23 @@ jobs:
             echo "NODE_ENV=${{ secrets.NODE_ENV }}" >> /home/ec2-user/api/.env
           EOF
 
-      - name: Instalar dependências e rodar containers
+      - name: Instalar NVM e Node.js
+        run: |
+          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install 20.18.0
+            nvm use 20.18.0
+            node -v
+            npm -v
+          EOF
+
+      - name: Instalar dependências
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
             cd /home/ec2-user/api
             npm install
-            sudo docker-compose build
-            sudo docker-compose up -d
           EOF
 
       - name: Rodar a API com npm run dev
@@ -79,8 +78,3 @@ jobs:
             cd /home/ec2-user/api
             nohup npm run dev > /home/ec2-user/api/logs.txt 2>&1 &
           EOF
-
-
-
-
-
