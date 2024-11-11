@@ -6,7 +6,7 @@ Nesta etapa será realizada o deploy dessa API utilizando serviços da AWS.
 
 ## Links Externos
 
-- [Documentação do Swagger](https://aws-node-ago-24-bucket.s3.amazonaws.com/README.html)
+- [Documentação do Swagger](https://aws-node-ago-24-bucket.s3.amazonaws.com/index.html)
 - [Repositório GitHub](https://github.com/rickRiquie/aws_node_ago24_desafio03_aws)
 
 ## Índice
