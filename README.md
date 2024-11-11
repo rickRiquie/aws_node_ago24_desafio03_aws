@@ -460,7 +460,7 @@ Este guia passo a passo explica como **deployar** a API CompassCar utilizando **
 Antes de começar, você precisará de:
 
 - Uma **instância EC2** na AWS com o sistema **Amazon Linux**. Passo a passo em: [Configuração da EC2](#configuração-da-ec2) e [Criando instância EC2](#criando-instância-ec2).
-- Acesso **SSH** à instância. Passo a passo em: [Utilizando PuTTy e PuTTYgen](#utilizando-putty) e [Utilizando MobaXterm](#utilizando-mobaxterm).
+- Acesso **SSH** à instância. Passo a passo em: [Utilizando PuTTy e PuTTYgen](#utilizando-putty), [Utilizando MobaXterm](#utilizando-mobaxterm) ou [Utilizando o Terminal](#utilizando-o-terminal).
 - A **chave SSH** para conectar à instância EC2. Passo a passo em: [Configuração de Key Pair](#configuração-de-key-pair).
 - Conta no **GitHub** para clonar o repositório.
 
