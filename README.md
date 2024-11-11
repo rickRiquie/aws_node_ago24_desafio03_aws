@@ -19,7 +19,8 @@ Para facilitar a navegação, você pode acessar diretamente as etapas do deploy
 - [Utilizando PuTTy e PuTTYgen](#utilizando-putty-e-puttygen)
 - [Utilizando MobaXterm](#utilizando-mobaxterm)
 - [Hora do deploy](#hora-do-deploy)
-
+- [Workflow de Deploy da API em Instância EC2](#workflow-de-deploy-da-api-em-instância-ec2)
+  
 ---
 
 ## Pré-requisitos
@@ -341,11 +342,11 @@ Lembre-se de onde ela está. Se preferir, crie um pasta para a sua chave.
 ---
 
 **Importante!** Para acessar a instância é preciso se conectar através de SSH e você tem várias formas de fazer isso.
-Aqui estão duas formas comuns:
+Aqui estão algumas formas comuns:
 
 ### Se você for utilizar o **PuTTy** siga esses passos:
 
-#### Utilizando PuTTy e PuTTYgen
+## Utilizando PuTTy e PuTTYgen
 
 1. Baixe [PuTTY e PuTTYgen](https://www.putty.org/)
 2. Instale os programas
@@ -366,9 +367,69 @@ Aqui estão duas formas comuns:
 
 ---
 
+### Se for utlizar o **terminal** siga esses passos:
+
+## Utilizando o **Terminal** 
+
+### Passo 1: Gerar as chaves **SSH**
+
+1. Abra o seu terminal, no meu caso utilizei o Git Bash. Você pode baixa-lo em [Git](https://git-scm.com/downloads).
+2. No terminal digite `cd .ssh`
+3. Para gerar uma nova chave **SSH**, digite o comando:
+   ```bash
+   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+   ```
+4. Adicione a Chave ao Agente SSH:
+   
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/nome-da-chave
+```
+   
+5. Exibir a Chave Pública e Copiá-la:
+ ```bash
+   cat ~/.ssh/id_rsa.pub
+ ```
+
+6. Acessar a instância EC2:
+
+```bash 
+ssh -i /path/to/your-private-key.pem ec2-user@<ec2-ip-address>
+ ```
+
+Coloque o caminho da chave que você criou na AWS.
+
+7. Dentro da sua instância, Verifique ou crie o arquivo authorized_keys:
+
+```bash
+touch ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+
+8. Adicione a chave pública gerada nos passos acima ao arquivo authorized_keys:
+
+```bash
+echo "ssh-rsa AAAAB3...your-public-key... rest of your key" >> ~/.ssh/authorized_keys
+```
+
+9. Verifique as permissões do diretório e arquivos:
+
+```bash
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+```
+
+Agora a proxima vez que for conectar a sua instância via terminal passe o caminho da sua nova chave privada, exemplo:
+
+```bash
+ssh -i "/c/Users/seu-usuario/.ssh/sua-nova-chave-privada" ec2-user@<ec2-ip-address>
+```
+
+---
+
 ### Se for utilizar o **MobaXterm** siga esses passos:
 
-#### Utilizando MobaXterm
+## Utilizando MobaXterm
 
 1. Baixe o [MobaXterm](https://mobaxterm.mobatek.net/download.html).
 2. Instale o MobaXterm no seu sistema.
@@ -584,6 +645,58 @@ Antes de começar, você precisará de:
 Sua API agora deve estar em funcionamento na instância EC2 e acessível na porta configurada (`8080`).
 
 ---
+
+## Deploy Automatizado para EC2 com GitHub Actions
+
+Este projeto inclui um workflow automatizado para deploy contínuo (CD) utilizando GitHub Actions, com o objetivo de realizar o deploy de uma API Node.js em uma instância EC2 da AWS. Abaixo, explico as etapas que compõem esse processo.
+
+
+1. **Configuração SSH:** [Utilizando o Terminal](#utilizando-o-terminal).
+   - O segundo passo é a de configuração da chave SSH para poder se conectar à instância EC2 de maneira segura. A chave privada é armazenada como um secret no GitHub (em secrets.EC2_SSH_KEY).
+     
+```yaml
+- name: Configurar SSH
+  uses: webfactory/ssh-agent@v0.5.3
+  with:
+    ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+```
+
+2. **Configurar variáveis de ambiente na instância EC2:**
+   - O próximo passo é configurar as variáveis de ambiente. Para isso é necessário configurar os secrets em seu GitHub, exemplo de `.env` para colocar nos secrets:
+
+```env
+# Variáveis de configuração do MySQL
+MYSQL_ROOT_PASSWORD=
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+
+# Outras variáveis de configuração
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+DB_PORT=3306
+
+# Configurações da aplicação
+PORT=8080
+NODE_ENV=production
+```
+
+3. **Fazendo o Deploy**: O deploy será feito automaticamente sempre que houver um push na branch main. Para acionar manualmente o workflow, siga estas etapas:
+    - Vá para a aba Actions do repositório.
+    - Selecione o workflow Deploy para EC2.
+    - Clique em Run workflow.
+  
+4. **Acesso à EC2:** Após o deploy ser realizado, a aplicação estará disponível na sua instância EC2 configurada. Para acessar a EC2 via SSH, use a chave privada configurada:
+```bash
+ssh -i path/to/your/private-key.pem ec2-user@<EC2_HOST>
+```
+- Você pode fazer o passo a passo para a a criação de novas chaves em: [Utilizando o Terminal](#utilizando-o-terminal). 
+
+
+
+
 
 
    
