@@ -23,33 +23,27 @@ jobs:
         run: |
           rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ ec2-user@${{ secrets.EC2_HOST }}:/home/ec2-user/api
 
+      - name: Configurar variáveis de ambiente na instância
+        run: |
+          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << EOF
+            echo "MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}" > /home/ec2-user/api/.env
+            echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> /home/ec2-user/api/.env
+            echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> /home/ec2-user/api/.env
+            echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> /home/ec2-user/api/.env
+            echo "DB_HOST=${{ secrets.DB_HOST }}" >> /home/ec2-user/api/.env
+            echo "DB_USER=${{ secrets.DB_USER }}" >> /home/ec2-user/api/.env
+            echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> /home/ec2-user/api/.env
+            echo "DB_NAME=${{ secrets.DB_NAME }}" >> /home/ec2-user/api/.env
+            echo "DB_PORT=${{ secrets.DB_PORT }}" >> /home/ec2-user/api/.env
+            echo "PORT=${{ secrets.PORT }}" >> /home/ec2-user/api/.env
+            echo "NODE_ENV=${{ secrets.NODE_ENV }}" >> /home/ec2-user/api/.env
+          EOF
+
       - name: Instalar dependências e rodar containers
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
             cd /home/ec2-user/api
-            sudo yum update -y
-            sudo amazon-linux-extras enable docker
-            sudo yum install docker -y
-            sudo systemctl start docker
-            sudo systemctl enable docker
-            sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            sudo chmod +x /usr/local/bin/docker-compose
-            docker --version
-            docker-compose --version
-            sudo yum install git -y
-            git --version
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-            echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.bashrc
-            echo "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"" >> ~/.bashrc
-            source ~/.bashrc
-            nvm install 20.18.0
-            nvm use 20.18.0
-            node -v
-            git clone https://github.com/rickRiquie/aws_node_ago24_desafio03_aws.git
-            cd aws_node_ago24_desafio03_aws
-            nano .env
             npm install
             sudo docker-compose build
             sudo docker-compose up -d
-            npm run dev
           EOF
