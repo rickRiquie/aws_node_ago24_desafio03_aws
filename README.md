@@ -17,6 +17,7 @@ Para facilitar a navegação, você pode acessar diretamente as etapas do deploy
 - [Configuração de Key Pair](#configuração-de-key-pair)
 - [Criando instância EC2](#criando-instância-ec2)
 - [Utilizando PuTTy e PuTTYgen](#utilizando-putty-e-puttygen)
+- [Utilizando o Terminal](#utilizando-o-terminal)
 - [Utilizando MobaXterm](#utilizando-mobaxterm)
 - [Hora do deploy](#hora-do-deploy)
 - [Deploy Automatizado para EC2 com GitHub Actions](#deploy-automatizado-para-ec2-com-github-actions)
