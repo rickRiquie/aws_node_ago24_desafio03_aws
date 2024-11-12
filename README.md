@@ -134,6 +134,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
       ]
    }
 
+   ```
 
 ### Passo 4: Hospedagem de site estático
 1. No console do S3, entre no bucket que você criou.
@@ -317,7 +318,7 @@ Lembre-se de onde ela está. Se preferir, crie um pasta para a sua chave.
 
 ![Tags](images/tags.png)
     
-**Importante**: Essas tags são importantes, pois estão de acordo com os atributos da política (ABAC) atribuída às contas do Scholarship Program. 
+**Importante!**: Essas tags são importantes, pois estão de acordo com os atributos da política (ABAC) atribuída às contas do Scholarship Program. 
 
 
 4. Sugestão de criação da imagem da sua VM:
@@ -370,12 +371,12 @@ Aqui estão algumas formas comuns:
 1. Abra o **PuTTYgen**.
 2. Carregue o arquivo PEM da sua chave. Passo realizado em [Configuração de Key Pair](#configuração-de-key-pair).
 3. Para carregar o arquivo PEM, clique em **Load** e depois selecione o arquivo `.pem` ( mude o tipo de arquivo para "All Files" ).
-4. Salve o arquivo PPK, após carregar o `.pem `, clique em **Save private key** e guarde o arquivo `bash .ppk `.
+4. Salve o arquivo PPK, após carregar o `.pem `, clique em **Save private key** e guarde o arquivo `.ppk`.
 
 #### Passo 2: Acessar a Instância com PuTTY
 
 1. Abra o **PuTTY**.
-2. No campo **Host Name (or IP address)**, insira `bash ec2-user@{your-ec2-public-dns}`
+2. No campo **Host Name (or IP address)**, insira `ec2-user@{your-ec2-public-dns}`
 3. Em **Connection** > **SSH** > **Auth**, selecione o arquivo  `.ppk`.
 4. Em Session, salve a configuração para reutilizar e clique em Open para conectar-se.
 
