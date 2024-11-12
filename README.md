@@ -9,9 +9,11 @@ Nesta etapa será realizada o deploy dessa API utilizando serviços da AWS.
 - [Documentação do Swagger](https://aws-node-ago-24-bucket.s3.amazonaws.com/index.html)
 - [Repositório GitHub](http://github.com/rickRiquie/aws_node_ago24_desafio03_aws)
 - Link público para API (http://ec2-3-17-12-14.us-east-2.compute.amazonaws.com:8080/login).
-   ```bash
-    "email": "usuario@example.com",
-    "password": "senha@123"`
+   ```json
+   {
+      "email": "usuario@example.com",
+      "password": "senha@123"
+   }
    ```
 ## Índice
 
