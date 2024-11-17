@@ -40,8 +40,7 @@ Para facilitar a navegação, você pode acessar diretamente as etapas do deploy
 Antes de começar, verifique se você tem os seguintes pré-requisitos:
 
 - **Uma conta na AWS**: Uma conta na AWS para criar e gerenciar recursos como EC2, S3, etc.
-- **Amazon S3**: Uma configuração de bucket no S3 para armazenar e disponibilizar o Swagger. Certifique-se de que o bucket esteja criado e configurado para acesso público, conforme descrito na seção [Configuração do S3](#configuração-do-s3).
-- **Instância EC2**: O deploy da aplicação será realizado em uma instância EC2. Você pode criar uma instância seguindo as instruções na seção [Configuração da EC2](#configuração-da-ec2) e [Criando instância EC2](#criando-instância-ec2) 
+- **GitHub**: Para clonar o projeto e conseguir fazer os passos corretamente. 
 - **Git**: O Git será instalado diretamente na instância EC2 para clonar o repositório e gerenciar o código-fonte.
 
 ---
@@ -107,7 +106,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 ![S3](images/s3-selecionar-bucket.png)
 
    
-2. Vá até a aba **"Permissões"**.
+2. Vá até a aba **Permissões**.
 
 
 ![S3](images/s3-bucket-ir-para-permi.png)
@@ -153,7 +152,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 4. Ao abrir a nova aba, ative a opção de **Hospedagem de site estático**
 
 
-5. Em **Documneto de ídice**, adicione o nome do arquivo que irá usar, exemplo: `index.html`.
+5. Em **Documneto de índice**, adicione o nome do arquivo que irá usar, exemplo: `index.html`.
 
 
 ![S3](images/s3-hospedar-static.png)
@@ -180,7 +179,7 @@ npx @redocly/cli build-docs ./swagger.yml -o ./index.html
 
 Agora, quando o arquivo for acessado via URL pública ou usado em sua aplicação, ele será exibido corretamente como HTML com suporte a caracteres UTF-8.
 
-5. Finalize clicando em **Carregar** ).
+5. Finalize clicando em **Carregar**.
    
 
 ![S3](images/s3-meta-fim.png)
@@ -302,7 +301,7 @@ A VPC é fundamental para isolar a infraestrutura de rede, fornecendo controle s
 ![KEYS](images/keys-par-de.png)
 
 
-**Importante!** Após esses passo um arquivo será baixado em seu computador, será a sua chave.
+**Importante!** Após esse passo um arquivo será baixado em seu computador, será a sua chave.
 Lembre-se de onde ela está. Se preferir, crie um pasta para a sua chave.
 
 ---
@@ -314,7 +313,7 @@ Lembre-se de onde ela está. Se preferir, crie um pasta para a sua chave.
 
 ![Tags](images/exec-instance.png)
 
-3. Em seguida crie as Tags:
+3. Em seguida crie as **Tags**:
 
 ![Tags](images/tags.png)
     
@@ -350,7 +349,7 @@ Lembre-se de onde ela está. Se preferir, crie um pasta para a sua chave.
 **Atenção!** Informe suas configurações com atenção, é importante que elas estejam corretas.
 
 
-8. Ao lado, você verá o quadro Resumo. Agora, basta clicar em Executar instância.
+8. Ao lado, você verá o quadro Resumo. Agora, basta clicar em **Executar instância**.
 
 ![Tags](images/resumo-ec2.png)
 
@@ -448,8 +447,8 @@ ssh -i "/path/to/your-private-key/.ssh/sua-nova-chave-privada" ec2-user@<ec2-ip-
 
 1. Baixe o [MobaXterm](https://mobaxterm.mobatek.net/download.html).
 2. Instale o MobaXterm no seu sistema.
-3. Abra o MobaXterm e vá para a opção **"Session"** no menu principal para iniciar uma nova conexão.
-4. Clique em **"SSH"** para conectar à sua instância EC2.
+3. Abra o MobaXterm e vá para a opção **Session** no menu principal para iniciar uma nova conexão.
+4. Clique em **SSH** para conectar à sua instância EC2.
 5. Em **Remote host** insira o IP público de sua instância.
 6. Marque a opção **Specify username** e digite **ec2-user**.
 7. Clique **Advanced SSH settings**.
@@ -663,11 +662,11 @@ Sua API agora deve estar em funcionamento na instância EC2 e acessível na port
 
 ## Deploy Automatizado para EC2 com GitHub Actions
 
-Este projeto inclui um workflow automatizado para deploy contínuo (CD) utilizando GitHub Actions, com o objetivo de realizar o deploy de uma API Node.js em uma instância EC2 da AWS. Abaixo, explico as etapas que compõem esse processo.
+Este projeto inclui um workflow automatizado para deploy contínuo (CD) utilizando GitHub Actions, com o objetivo de realizar o deploy da API CompassCar em uma instância EC2 da AWS. Abaixo, explico as etapas que compõem esse processo.
 
 
 1. **Configuração SSH:** [Utilizando o Terminal](#utilizando-o-terminal).
-   - O segundo passo é a de configuração da chave SSH para poder se conectar à instância EC2 de maneira segura. A chave privada é armazenada como um secret no GitHub (em secrets.EC2_SSH_KEY).
+   - O segundo passo é a de configuração da chave SSH. A chave privada é armazenada como um secret no GitHub em `secrets.EC2_SSH_KEY`.
      
 ```yaml
 - name: Configurar SSH
@@ -698,7 +697,7 @@ PORT=8080
 NODE_ENV=production
 ```
 
-- Preencha os espações vazios com suas informações.
+- Preencha os espaços vazios com suas informações.
 
 3. **Fazendo o Deploy**: Para acionar manualmente o workflow, siga estas etapas:
     - Vá para a aba Actions do repositório.
